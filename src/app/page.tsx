@@ -1,102 +1,135 @@
+"use client";
+
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import Navbar from "../../components/Navbar";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [loaded, setLoaded] = useState(false);
+  const [showLearnMore, setShowLearnMore] = useState(false);
+  const learnMoreRef = useRef<HTMLDivElement>(null);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    setLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (showLearnMore && learnMoreRef.current) {
+      learnMoreRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [showLearnMore]);
+
+  return (
+    <div className="relative min-h-screen w-full font-[family-name:var(--font-geist-sans)] bg-black">
+      {/* Background Image */}
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/background.jpg"
+          alt="Background"
+          fill
+          priority
+          className="object-cover brightness-50"
+        />
+      </div>
+
+      {/* Content */}
+      <div
+        className={`flex flex-col items-center justify-center min-h-screen text-white text-center px-6 gap-10 backdrop-blur-sm transition-opacity duration-1000 ${
+          loaded ? "opacity-100" : "opacity-0"
+        }`}
+      >
+        <Navbar />
+
+        {/* Epitech Logo */}
+        <div className="w-40 sm:w-52 drop-shadow-[0_0_8px_rgba(59,130,246,0.7)]">
+          <Image
+            src="/epitech.png"
+            alt="Epitech Logo"
+            width={400}
+            height={100}
+            className="w-full h-auto object-contain"
+            priority
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+
+        {/* Main Text */}
+        <main className="space-y-6 max-w-3xl">
+          <h1 className="text-4xl sm:text-5xl font-extrabold leading-tight tracking-wide">
+            Welcome to My Portfolio
+          </h1>
+          <p className="text-lg sm:text-xl leading-relaxed max-w-xl mx-auto">
+            Hi, I’m <strong>Khushan Kanakrai</strong>, a student at{" "}
+            <strong>Epitech Barcelona</strong>. This portfolio showcases my
+            projects and journey into programming.
+          </p>
+
+          <button
+            onClick={() => setShowLearnMore(true)}
+            className="inline-block mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-full text-white font-semibold shadow-lg transition focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+          >
+            Learn More
+          </button>
+        </main>
+      </div>
+
+      {/* Learn More Section */}
+      {showLearnMore && (
+        <div
+          ref={learnMoreRef}
+          className="w-full bg-black/80 px-6 py-20 text-white text-left space-y-20 animate-fade-in"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+          {/* Learning Path */}
+          <section className="max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4">Learning Path & Current Studies</h2>
+            <ul className="list-disc list-inside space-y-2">
+              <li>Programming in C (data structures, memory, syscalls)</li>
+              <li>Linux, shell scripting, and OS fundamentals</li>
+              <li>Web development with HTML, CSS, JS, and React/Next.js</li>
+              <li>Projects: `ls` clone, `top`, custom shell, and more</li>
+            </ul>
+          </section>
+
+          {/* Contact Info */}
+          <section className="max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4">Contact Info</h2>
+            <ul className="list-disc list-inside space-y-1">
+              <li>
+                Email:{" "}
+                <a
+                  href="mailto:khushan.kanakrai5@gmail.com"
+                  className="underline text-blue-400 hover:text-blue-300"
+                >
+                  khushan.kanakrai5@gmail.com
+                </a>
+              </li>
+              <li>
+                Phone Number:{" "}
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:text-blue-300"
+                >
+                  +34617465190
+                </a>
+              </li>
+            </ul>
+          </section>
+
+          {/* Collapse Button */}
+          <div className="text-center">
+            <button
+              onClick={() => setShowLearnMore(false)}
+              className="mt-10 px-6 py-3 bg-red-600 hover:bg-red-700 rounded-full text-white font-semibold shadow-lg transition"
+            >
+              Hide Info
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Footer */}
+      <footer className="text-sm text-gray-300 text-center py-8 select-none">
+        &copy; {new Date().getFullYear()} Khushan Kanakrai
       </footer>
     </div>
   );

@@ -58,7 +58,7 @@ export default function Home() {
             Welcome to My Portfolio
           </h1>
           <p className="text-lg sm:text-xl leading-relaxed max-w-xl mx-auto">
-            Hi, I’m <strong>Khushan Kanakrai</strong>, a student at{" "}
+            Hi, I'm <strong>Khushan Kanakrai</strong>, a student at{" "}
             <strong>Epitech Barcelona</strong>. This portfolio showcases my
             projects and journey into programming.
           </p>
@@ -80,13 +80,55 @@ export default function Home() {
         >
           {/* Learning Path */}
           <section className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-4">Learning Path & Current Studies</h2>
-            <ul className="list-disc list-inside space-y-2">
-              <li>Programming in C (data structures, memory, syscalls)</li>
-              <li>Linux, shell scripting, and OS fundamentals</li>
-              <li>Web development with HTML, CSS, JS, and React/Next.js</li>
-              <li>Projects: `ls` clone, `top`, custom shell, and more</li>
-            </ul>
+            <h2 className="text-3xl font-bold mb-4">Skills & Expertise</h2>
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Programming Languages</h3>
+                <ul className="list-disc list-inside space-y-1">
+                  <li>C (data structures, memory management, syscalls)</li>
+                  <li>TypeScript & JavaScript (modern web development)</li>
+                  <li>Python (data analysis, machine learning)</li>
+                  <li>SQL (database management)</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Frameworks & Libraries</h3>
+                <ul className="list-disc list-inside space-y-1">
+                  <li>Next.js & React (frontend development)</li>
+                  <li>Node.js & Express.js (backend development)</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Tools & Technologies</h3>
+                <ul className="list-disc list-inside space-y-1">
+                  <li>Git & GitHub (version control)</li>
+                  <li>Linux CLI & Shell Scripting</li>
+                  <li>VS Code (development environment)</li>
+                  <li>Postman (API testing)</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Data Analysis & Machine Learning</h3>
+                <ul className="list-disc list-inside space-y-1">
+                  <li>Pandas (data manipulation)</li>
+                  <li>Scikit-learn (machine learning)</li>
+                  <li>Data Visualization</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="text-xl font-semibold mb-2">Soft Skills</h3>
+                <ul className="list-disc list-inside space-y-1">
+                  <li>Problem Solving</li>
+                  <li>Team Collaboration</li>
+                  <li>Communication</li>
+                  <li>Adaptability</li>
+                </ul>
+              </div>
+            </div>
           </section>
 
           {/* Contact Info */}

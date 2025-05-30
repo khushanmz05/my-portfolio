@@ -31,14 +31,12 @@ export default function About() {
 
         <h1 className="text-4xl font-bold text-blue-700">About Me</h1>
 
-        <p className="text-lg leading-relaxed">
-          Hey! I&apos;m <strong>Khushan Kanakrai</strong>, a <strong>first-year software engineering student</strong> at <strong>Epitech</strong> in Barcelona.
-          I&apos;m passionate about building technology from the ground up and currently immersed in low-level development using <strong>C</strong>.
-        </p>
+        <p className="text-lg sm:text-xl leading-relaxed max-w-xl mx-auto">
+          I'm a passionate software developer with a strong foundation in both low-level and high-level programming. At Epitech, I'm diving deep into system programming, memory management, and core computer science concepts that form the backbone of great software.
 
-        <p className="text-lg leading-relaxed">
-          I love solving complex problems and writing efficient, clean code. At Epitech, I’m diving deep into memory management, system programming,
-          and core concepts that form the backbone of great software.
+          My expertise spans from low-level C programming to modern web development with TypeScript and React. I enjoy tackling complex problems and writing efficient, clean code that's both performant and maintainable. Whether it's building system-level tools, developing full-stack applications, or working on data analysis projects, I'm always eager to learn and apply new technologies.
+
+          Beyond coding, I'm committed to continuous learning and staying current with industry best practices. I believe in writing code that not only works but is also well-documented, tested, and follows modern development standards.
         </p>
 
         <div className="bg-white shadow-lg rounded-xl p-6 space-y-4">

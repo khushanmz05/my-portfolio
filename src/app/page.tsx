@@ -58,7 +58,7 @@ export default function Home() {
             Welcome to My Portfolio
           </h1>
           <p className="text-lg sm:text-xl leading-relaxed max-w-xl mx-auto">
-            Hi, I'm <strong>Khushan Kanakrai</strong>, a student at{" "}
+            Hi, I&apos;m <strong>Khushan Kanakrai</strong>, a student at{" "}
             <strong>Epitech Barcelona</strong>. This portfolio showcases my
             projects and journey into programming.
           </p>

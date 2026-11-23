@@ -95,7 +95,6 @@ export const projects: Project[] = [
       "A self-hosted dashboard for weather, GitHub activity and RSS feeds, with accounts, OAuth, per-user widgets, independent refresh timers and a Docker deployment.",
     stack: ["Node.js", "SQLite", "OAuth", "Docker", "Playwright", "Vanilla JS"],
     cover: "dashboard",
-    live: "https://gayboyz.lol",
     caseStudy: "/projects/dashboard",
     repo: "https://github.com/khushanmz05/Dashboard",
     featured: true,
@@ -169,7 +168,7 @@ export const projects: Project[] = [
       "A ray-tracing engine that generates realistic images by simulating the inverse path of light. I worked on the scene parser, converting scene-description files into structured data for the rendering pipeline.",
     stack: ["C++", "Scene Parsing", "OOP", "3D Rendering"],
     cover: "raycast",
-    image: "/raytracer/images.jpg",
+    image: "/raytracer/cover.jpg",
     repo: "https://github.com/khushanmz05/Raytracer.git",
     caseStudy: "/projects/raytracer",
     school: true,
@@ -273,6 +272,7 @@ export const projects: Project[] = [
       "A first-person raycasting engine with textured walls, sprite rendering, collision handling and a minimap, built from scratch with CSFML.",
     stack: ["C", "CSFML", "Raycasting", "Game Engine"],
     cover: "raycast",
+    image: "/wolf3db.jpg",
     repoNote: "Epitech repository (private)",
     school: true,
   },
@@ -378,4 +378,20 @@ export const featuredProjects = ["sensai", "dashboard", "mytorch", "livedrop"]
 
 export function getProject(slug: string) {
   return projects.find((project) => project.slug === slug);
+}
+
+export type PrimaryLink = {
+  href: string;
+  label: "Case study" | "Live site" | "Repository";
+  external: boolean;
+};
+
+export function primaryLink(project: Project): PrimaryLink | null {
+  if (project.caseStudy)
+    return { href: project.caseStudy, label: "Case study", external: false };
+  if (project.live)
+    return { href: project.live, label: "Live site", external: true };
+  if (project.repo)
+    return { href: project.repo, label: "Repository", external: true };
+  return null;
 }

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -14,7 +14,17 @@ export default function Navbar() {
     { href: "/projects", label: "Projects" },
     { href: "/experience", label: "Experience" },
     { href: "/education", label: "Education" },
+    { href: "/about", label: "About" },
   ];
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  const isActive = (href: string) =>
+    href === "/"
+      ? pathname === "/"
+      : pathname === href || pathname.startsWith(`${href}/`);
 
   const linkClasses = (active: boolean) =>
     `rounded-full px-4 py-2 text-sm font-semibold tracking-[-0.01em] transition-all duration-200 ${
@@ -28,12 +38,13 @@ export default function Navbar() {
       {/* Desktop navigation */}
       <nav className="hidden items-center gap-2 rounded-full border border-[#2A2A31] bg-[#18181B]/90 p-2 shadow-[0_8px_30px_rgba(0,0,0,0.25)] backdrop-blur-md sm:flex">
         {links.map((link) => {
-          const active = pathname === link.href;
+          const active = isActive(link.href);
 
           return (
             <Link
               key={link.href}
               href={link.href}
+              aria-current={active ? "page" : undefined}
               className={linkClasses(active)}
             >
               {link.label}
@@ -93,13 +104,14 @@ export default function Navbar() {
               className="absolute right-0 top-16 w-52 rounded-[20px] border border-[#2A2A31] bg-[#18181B]/95 p-2 shadow-[0_16px_40px_rgba(0,0,0,0.4)] backdrop-blur-md"
             >
               {links.map((link) => {
-                const active = pathname === link.href;
+                const active = isActive(link.href);
 
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
+                    aria-current={active ? "page" : undefined}
                     className={`mb-1 flex min-h-11 items-center rounded-xl px-4 text-sm font-semibold tracking-[-0.01em] transition last:mb-0 ${
                       active
                         ? "bg-[#8B7CF6] text-white"

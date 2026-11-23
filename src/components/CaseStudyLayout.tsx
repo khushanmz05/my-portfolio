@@ -1,10 +1,8 @@
 "use client";
 
+import Container from "@/components/Container";
 import Image from "next/image";
 import Link from "next/link";
-import Navbar from "@/components/Navbar";
-import PageBackground from "@/components/PageBackground";
-import SiteFooter from "@/components/SiteFooter";
 import ProjectCover from "@/components/ProjectCover";
 import { metricsSentence, type Project } from "@/data/projects";
 
@@ -38,12 +36,10 @@ export default function CaseStudyLayout({
 }: CaseStudyLayoutProps) {
   return (
     <>
-      <Navbar />
 
-      <main className="relative min-h-screen overflow-hidden bg-[#121214] px-6 pb-20 pt-32 text-[#F3F3F5] md:px-10 lg:px-16">
-        <PageBackground />
+      <Container>
 
-        <article className="relative mx-auto max-w-6xl">
+        <article className="relative">
           <Link
             href="/projects"
             className="inline-flex items-center text-sm font-medium text-[#A1A1AA] transition hover:text-[#A99CFF]"
@@ -185,10 +181,8 @@ export default function CaseStudyLayout({
               ))}
             </div>
           </section>
-
-          <SiteFooter />
         </article>
-      </main>
+      </Container>
     </>
   );
 }

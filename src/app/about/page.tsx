@@ -1,8 +1,6 @@
+import Container from "@/components/Container";
 import Image from "next/image";
 import Link from "next/link";
-import Navbar from "@/components/Navbar";
-import PageBackground from "@/components/PageBackground";
-import SiteFooter from "@/components/SiteFooter";
 import { site, socials } from "@/data/site";
 
 const places = [
@@ -33,12 +31,10 @@ const places = [
 export default function About() {
   return (
     <>
-      <Navbar />
 
-      <main className="relative min-h-screen overflow-hidden bg-[#121214] px-6 pb-20 pt-32 text-[#F3F3F5] md:px-10 lg:px-16">
-        <PageBackground />
+      <Container>
 
-        <div className="relative mx-auto max-w-3xl">
+        <div className="relative max-w-3xl">
           <header className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-8">
             <div className="relative aspect-[4/5] w-28 shrink-0 overflow-hidden rounded-[20px] border border-[#2A2A31] bg-[#18181B] sm:w-40">
               <Image
@@ -144,10 +140,8 @@ export default function About() {
               </a>
             </div>
           </section>
-
-          <SiteFooter />
         </div>
-      </main>
+      </Container>
     </>
   );
 }

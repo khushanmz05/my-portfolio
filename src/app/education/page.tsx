@@ -1,9 +1,7 @@
 "use client";
 
+import Container from "@/components/Container";
 import Image from "next/image";
-import Navbar from "@/components/Navbar";
-import PageBackground from "@/components/PageBackground";
-import SiteFooter from "@/components/SiteFooter";
 
 type EducationItem = {
   school: string;
@@ -38,12 +36,10 @@ const education: EducationItem[] = [
 export default function Education() {
   return (
     <>
-      <Navbar />
 
-      <main className="relative min-h-screen overflow-hidden bg-[#121214] px-6 pb-20 pt-32 text-[#F3F3F5] md:px-10 lg:px-16">
-        <PageBackground />
+      <Container>
 
-        <div className="relative mx-auto max-w-3xl">
+        <div className="relative max-w-3xl">
           <div className="mb-16 max-w-2xl">
             <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
               Education
@@ -105,10 +101,8 @@ export default function Education() {
               </section>
             ))}
           </div>
-
-          <SiteFooter />
         </div>
-      </main>
+      </Container>
     </>
   );
 }

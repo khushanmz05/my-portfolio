@@ -1,9 +1,7 @@
 "use client";
 
+import Container from "@/components/Container";
 import { useMemo, useState } from "react";
-import Navbar from "@/components/Navbar";
-import PageBackground from "@/components/PageBackground";
-import SiteFooter from "@/components/SiteFooter";
 import ProjectCard from "@/components/ProjectCard";
 import ProjectRow from "@/components/ProjectRow";
 import FlagshipCard from "@/components/FlagshipCard";
@@ -40,12 +38,10 @@ export default function Projects() {
 
   return (
     <>
-      <Navbar />
 
-      <main className="relative min-h-screen overflow-hidden bg-[#121214] px-6 pb-20 pt-32 text-[#F3F3F5] md:px-10 lg:px-16">
-        <PageBackground />
+      <Container>
 
-        <div className="relative mx-auto max-w-6xl">
+        <div className="relative">
           <header className="max-w-3xl">
             <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
               Projects
@@ -199,10 +195,8 @@ export default function Projects() {
               </div>
             </section>
           )}
-
-          <SiteFooter />
         </div>
-      </main>
+      </Container>
     </>
   );
 }

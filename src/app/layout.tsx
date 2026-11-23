@@ -1,5 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import PageBackground from "@/components/PageBackground";
+import SiteFooter from "@/components/SiteFooter";
+import SkipLink from "@/components/SkipLink";
 
 export const metadata: Metadata = {
   title: {
@@ -61,7 +65,17 @@ export default function RootLayout({
         />
       </head>
 
-      <body className="font-satoshi antialiased">{children}</body>
+      <body className="font-satoshi antialiased">
+        <SkipLink />
+        <Navbar />
+        <div className="relative min-h-screen overflow-x-clip">
+          <PageBackground />
+          <main id="main" tabIndex={-1} className="relative pb-20 pt-32 outline-none">
+            {children}
+          </main>
+          <SiteFooter />
+        </div>
+      </body>
     </html>
   );
 }

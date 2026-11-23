@@ -1,11 +1,9 @@
 "use client";
 
+import Container from "@/components/Container";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Navbar from "@/components/Navbar";
-import PageBackground from "@/components/PageBackground";
-import SiteFooter from "@/components/SiteFooter";
 import FlagshipCard from "@/components/FlagshipCard";
 import { featuredProjects, primaryLink, projects } from "@/data/projects";
 import { site, socials } from "@/data/site";
@@ -32,12 +30,10 @@ const secondaryWork = featuredProjects.slice(1);
 export default function Home() {
   return (
     <>
-      <Navbar />
 
-      <main className="relative min-h-screen overflow-hidden bg-[#121214] px-6 text-[#F3F3F5] md:px-10 lg:px-16">
-        <PageBackground />
+      <Container>
 
-        <section className="relative mx-auto max-w-7xl pb-16 pt-32 md:pt-40">
+        <section className="relative pb-16 md:pt-8">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -116,7 +112,7 @@ export default function Home() {
           </motion.div>
         </section>
 
-        <section className="relative mx-auto max-w-7xl border-t border-[#2A2A31] py-12">
+        <section className="relative border-t border-[#2A2A31] py-12">
           <div className="grid gap-8 md:grid-cols-3">
             {strengths.map((strength) => (
               <div key={strength.title}>
@@ -133,7 +129,7 @@ export default function Home() {
 
         <section
           id="work"
-          className="relative mx-auto max-w-7xl scroll-mt-24 pb-8 pt-12"
+          className="relative scroll-mt-24 pb-8 pt-12"
         >
           <div className="flex flex-col gap-4 border-t border-[#2A2A31] pt-10 sm:flex-row sm:items-end sm:justify-between">
             <div>
@@ -213,10 +209,8 @@ export default function Home() {
               );
             })}
           </div>
-
-          <SiteFooter />
         </section>
-      </main>
+      </Container>
     </>
   );
 }

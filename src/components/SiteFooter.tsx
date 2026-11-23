@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Container from "@/components/Container";
 import { site, socials } from "@/data/site";
 
 const links = [
@@ -8,7 +9,9 @@ const links = [
 
 export default function SiteFooter() {
   return (
-    <footer className="relative mx-auto mt-24 max-w-6xl border-t border-[#2A2A31] py-10">
+    <footer className="relative mt-4">
+      <Container>
+        <div className="border-t border-[#2A2A31] py-10">
       <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="text-lg font-medium text-[#F3F3F5]">
@@ -51,6 +54,8 @@ export default function SiteFooter() {
           Khushan Kanakrai, Software Engineering
         </Link>
       </div>
+        </div>
+      </Container>
     </footer>
   );
 }

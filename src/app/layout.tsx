@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { site } from "@/data/site";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import PageBackground from "@/components/PageBackground";
@@ -7,6 +8,8 @@ import SkipLink from "@/components/SkipLink";
 import MotionProvider from "@/components/motion/MotionProvider";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
+  alternates: { canonical: "/" },
   title: {
     default: "Khushan Kanakrai | Software Engineering Portfolio",
     template: "%s | Khushan Kanakrai",

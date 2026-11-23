@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Container from "@/components/Container";
 import Image from "next/image";
 
@@ -30,6 +31,13 @@ const education: EducationItem[] = [
     logo: "/logos/chis.jpg",
   },
 ];
+
+export const metadata: Metadata = {
+  title: "Education",
+  description:
+    "My academic path from secondary school to a software engineering degree focused on full-stack development, AI and systems fundamentals.",
+  alternates: { canonical: "/education" },
+};
 
 export default function Education() {
   return (

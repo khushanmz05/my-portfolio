@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Container from "@/components/Container";
 import Image from "next/image";
 import Link from "next/link";
@@ -27,6 +28,13 @@ const places = [
     ],
   },
 ];
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "I came to software through hardware: from IT support in Mozambique to full-stack and AI engineering in Barcelona.",
+  alternates: { canonical: "/about" },
+};
 
 export default function About() {
   return (

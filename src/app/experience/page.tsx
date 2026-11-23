@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Container from "@/components/Container";
 import Image from "next/image";
 
@@ -29,6 +30,13 @@ const experience: ExperienceItem[] = [
     logo: "/logos/infotech.jpg",
   },
 ];
+
+export const metadata: Metadata = {
+  title: "Experience",
+  description:
+    "Six months of IT support in Tete, Mozambique — the job that taught me to debug with someone standing over my shoulder.",
+  alternates: { canonical: "/experience" },
+};
 
 export default function Experience() {
   return (

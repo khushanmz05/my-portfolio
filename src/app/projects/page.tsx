@@ -1,6 +1,14 @@
+import type { Metadata } from "next";
 import Container from "@/components/Container";
 import ProjectsExplorer from "@/components/ProjectsExplorer";
 import { categories, projects } from "@/data/projects";
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description:
+    "Full-stack products, AI systems and the occasional low-level detour, most of it started as an Epitech brief.",
+  alternates: { canonical: "/projects" },
+};
 
 export default function Projects() {
   return (

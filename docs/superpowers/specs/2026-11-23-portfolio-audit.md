@@ -89,3 +89,21 @@ soften).
 - `next/image` used everywhere with alt text; correct `rel="noopener noreferrer"`.
 - Semantic landmarks, `aria-current`, `aria-pressed` on filters, `aria-expanded` on the menu, visible `:focus-visible` ring.
 - Copy is concrete and personal; muted greys (`#8B8B95` on `#121214` = 5.6:1) pass AA.
+
+## Re-audit — after the improvement plan (branch `improve/audit-fixes`)
+
+Method: the same as above. Also: 107 Playwright tests (desktop and Pixel 7, including axe WCAG 2 A/AA on every main route), 21 Vitest tests, and the Impeccable detector at 1280×800 and 390×844 on `/`, `/projects`, `/projects/sensai`, `/about` and `/education`.
+
+| # | Dimension | Before | After | Evidence |
+|---|---|---|---|---|
+| 1 | Accessibility | 2 | 4 | axe: 0 A/AA violations on all routes at both viewports. Accent contrast 4.9:1. Skip link. Mobile menu traps focus, closes on Escape and outside clicks, and returns focus. Reduced motion respected; content visible without JS. |
+| 2 | Performance | 2 | 3 | First-load JS on `/` went from 163 to 110 kB. Pages are server components; framer-motion loads lazily and only for the menu. Satoshi is self-hosted with `next/font`. Remaining: raster images are unoptimised JPEG/PNG sources. |
+| 3 | Theming | 1 | 4 | Full `@theme` colour tokens. No hex literals in components except two illustration colours and the meta `themeColor`. The site is dark-only by design. |
+| 4 | Responsive | 3 | 4 | Tap targets ≥ 44px at 390px. No horizontal scroll at 320px with 200% text. Brand plus full-width mobile menu. Portrait height capped. |
+| 5 | Implementation integrity | 2 | 3 | One `Container` width, a shared `ButtonLink`, one case-study route, contact data in one place, no glow shadows. Detector: only the advisory `codex-grid-background` remains (it's part of the identity). Remaining: small labels above case-study headings ("The project", "My contribution") are an eyebrow pattern Impeccable bans. |
+| | **Total** | **10/20** | **18/20** | **Excellent (minor polish)** |
+
+Remaining recommendations:
+1. `/impeccable distill` on case studies: drop or fold in the eyebrow labels above section headings and above the `h1`.
+2. `/impeccable optimize`: re-export project screenshots at their displayed sizes (several are 200 KB+ PNG/JPEG).
+3. Set `NEXT_PUBLIC_SITE_URL` to the real domain in the hosting environment.

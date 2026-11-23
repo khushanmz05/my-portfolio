@@ -48,7 +48,7 @@ for (const route of ["/projects", "/education"]) {
           const text = (p.textContent ?? "").trim();
           const lineHeight = parseFloat(getComputedStyle(p).lineHeight);
           const lines = Math.round(p.getBoundingClientRect().height / lineHeight);
-          return lines > 1 ? text.length / lines : 0;
+          return lines > 1 ? text.length / (lines - 0.5) : 0;
         }),
       ),
     );

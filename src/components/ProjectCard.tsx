@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import ProjectCover from "./ProjectCover";
-import type { Project } from "../src/data/projects";
+import ProjectCover from "@/components/ProjectCover";
+import type { Project } from "@/data/projects";
 
 type ProjectCardProps = {
   project: Project;

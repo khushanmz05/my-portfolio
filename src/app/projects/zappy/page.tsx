@@ -1,5 +1,5 @@
-import CaseStudyLayout from "../../../../components/CaseStudyLayout";
-import { getProject } from "../../../data/projects";
+import CaseStudyLayout from "@/components/CaseStudyLayout";
+import { getProject } from "@/data/projects";
 
 export default function ZappyCaseStudy() {
   const project = getProject("zappy")!;

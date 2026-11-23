@@ -1,5 +1,5 @@
-import CaseStudyLayout from "../../../../components/CaseStudyLayout";
-import { getProject } from "../../../data/projects";
+import CaseStudyLayout from "@/components/CaseStudyLayout";
+import { getProject } from "@/data/projects";
 
 export default function DashboardCaseStudy() {
   const project = getProject("dashboard")!;

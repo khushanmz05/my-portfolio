@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import Navbar from "./Navbar";
-import PageBackground from "./PageBackground";
-import SiteFooter from "./SiteFooter";
-import ProjectCover from "./ProjectCover";
-import { metricsSentence, type Project } from "../src/data/projects";
+import Navbar from "@/components/Navbar";
+import PageBackground from "@/components/PageBackground";
+import SiteFooter from "@/components/SiteFooter";
+import ProjectCover from "@/components/ProjectCover";
+import { metricsSentence, type Project } from "@/data/projects";
 
 export type CaseStudySection = {
   label: string;

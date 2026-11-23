@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import Navbar from "../../../components/Navbar";
-import PageBackground from "../../../components/PageBackground";
-import SiteFooter from "../../../components/SiteFooter";
+import Navbar from "@/components/Navbar";
+import PageBackground from "@/components/PageBackground";
+import SiteFooter from "@/components/SiteFooter";
+import { site, socials } from "@/data/site";
 
 const places = [
   {
@@ -107,7 +108,7 @@ export default function About() {
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
               <a
-                href="mailto:khushan.kanakrai5@gmail.com"
+                href={`mailto:${site.email}`}
                 className="inline-flex items-center justify-center rounded-full bg-[#8B7CF6] px-6 py-3 text-sm font-medium text-white shadow-[0_8px_24px_rgba(139,124,246,0.35)] transition hover:bg-[#9A8CFF]"
               >
                 Email me
@@ -121,24 +122,21 @@ export default function About() {
             </div>
 
             <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-[#A1A1AA]">
+              {socials
+                .filter((social) => social.external)
+                .map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline decoration-[#3A3A42] underline-offset-4 transition hover:text-white hover:decoration-[#8B7CF6]"
+                  >
+                    {social.label}
+                  </a>
+                ))}
               <a
-                href="https://github.com/khushanmz05"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-[#3A3A42] underline-offset-4 transition hover:text-white hover:decoration-[#8B7CF6]"
-              >
-                GitHub
-              </a>
-              <a
-                href="https://www.linkedin.com/in/khushan-kanakrai-170060310/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline decoration-[#3A3A42] underline-offset-4 transition hover:text-white hover:decoration-[#8B7CF6]"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="/Khushan_Kanakrai_CV.pdf"
+                href={site.cvPath}
                 download
                 className="underline decoration-[#3A3A42] underline-offset-4 transition hover:text-white hover:decoration-[#8B7CF6]"
               >

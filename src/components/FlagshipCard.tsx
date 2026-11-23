@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import ProjectCover from "./ProjectCover";
-import { metricsSentence, type Project } from "../src/data/projects";
+import ProjectCover from "@/components/ProjectCover";
+import { metricsSentence, type Project } from "@/data/projects";
 
 type FlagshipCardProps = {
   project: Project;

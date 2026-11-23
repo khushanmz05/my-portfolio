@@ -3,11 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Navbar from "../../components/Navbar";
-import PageBackground from "../../components/PageBackground";
-import SiteFooter from "../../components/SiteFooter";
-import FlagshipCard from "../../components/FlagshipCard";
-import { featuredProjects, projects } from "../data/projects";
+import Navbar from "@/components/Navbar";
+import PageBackground from "@/components/PageBackground";
+import SiteFooter from "@/components/SiteFooter";
+import FlagshipCard from "@/components/FlagshipCard";
+import { featuredProjects, projects } from "@/data/projects";
+import { site, socials } from "@/data/site";
 
 const strengths = [
   {
@@ -27,14 +28,6 @@ const strengths = [
 const flagship = featuredProjects[0];
 const secondaryWork = featuredProjects.slice(1);
 
-const socials = [
-  { href: "https://github.com/khushanmz05", label: "GitHub" },
-  {
-    href: "https://www.linkedin.com/in/khushan-kanakrai-170060310/",
-    label: "LinkedIn",
-  },
-  { href: "mailto:khushan.kanakrai5@gmail.com", label: "Email" },
-];
 
 export default function Home() {
   return (
@@ -81,7 +74,7 @@ export default function Home() {
                 </Link>
 
                 <a
-                  href="/Khushan_Kanakrai_CV.pdf"
+                  href={site.cvPath}
                   download
                   className="inline-flex items-center justify-center rounded-full border border-[#2A2A31] bg-[#18181B] px-6 py-3 text-sm font-medium text-[#F3F3F5] transition hover:border-[#8B7CF6]/40 hover:bg-[#1D1D22]"
                 >
@@ -94,14 +87,8 @@ export default function Home() {
                   <a
                     key={social.label}
                     href={social.href}
-                    target={
-                      social.href.startsWith("http") ? "_blank" : undefined
-                    }
-                    rel={
-                      social.href.startsWith("http")
-                        ? "noopener noreferrer"
-                        : undefined
-                    }
+                    target={social.external ? "_blank" : undefined}
+                    rel={social.external ? "noopener noreferrer" : undefined}
                     className="transition hover:text-white"
                   >
                     {social.label}

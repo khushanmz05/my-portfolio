@@ -1,18 +1,18 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Navbar from "../../../components/Navbar";
-import PageBackground from "../../../components/PageBackground";
-import SiteFooter from "../../../components/SiteFooter";
-import ProjectCard from "../../../components/ProjectCard";
-import ProjectRow from "../../../components/ProjectRow";
-import FlagshipCard from "../../../components/FlagshipCard";
+import Navbar from "@/components/Navbar";
+import PageBackground from "@/components/PageBackground";
+import SiteFooter from "@/components/SiteFooter";
+import ProjectCard from "@/components/ProjectCard";
+import ProjectRow from "@/components/ProjectRow";
+import FlagshipCard from "@/components/FlagshipCard";
 import {
   categories,
   featuredProjects,
   projects,
   type ProjectCategory,
-} from "../../data/projects";
+} from "@/data/projects";
 
 type Filter = ProjectCategory | "All";
 

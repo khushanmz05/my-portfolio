@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import type { CoverKind } from "../src/data/projects";
+import type { CoverKind } from "@/data/projects";
 
 type ProjectCoverProps = {
   kind: CoverKind;

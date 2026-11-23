@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { Project } from "../src/data/projects";
+import type { Project } from "@/data/projects";
 
 export default function ProjectRow({ project }: { project: Project }) {
   return (

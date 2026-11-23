@@ -1,18 +1,9 @@
 import Link from "next/link";
+import { site, socials } from "@/data/site";
 
 const links = [
-  { href: "mailto:khushan.kanakrai5@gmail.com", label: "Email", external: false },
-  {
-    href: "https://github.com/khushanmz05",
-    label: "GitHub",
-    external: true,
-  },
-  {
-    href: "https://www.linkedin.com/in/khushan-kanakrai-170060310/",
-    label: "LinkedIn",
-    external: true,
-  },
-  { href: "/Khushan_Kanakrai_CV.pdf", label: "Download CV", external: false },
+  ...socials.map((s) => ({ ...s, download: false })),
+  { label: "Download CV", href: site.cvPath, external: false, download: true },
 ];
 
 export default function SiteFooter() {
@@ -44,7 +35,7 @@ export default function SiteFooter() {
               <a
                 key={link.label}
                 href={link.href}
-                {...(link.label === "Download CV" ? { download: true } : {})}
+                download={link.download || undefined}
                 className="text-[#D4D4D8] transition hover:text-[#A99CFF]"
               >
                 {link.label}
@@ -55,7 +46,7 @@ export default function SiteFooter() {
       </div>
 
       <div className="mt-10 flex flex-col gap-2 text-xs text-[#8B8B95] sm:flex-row sm:items-center sm:justify-between">
-        <p>© {new Date().getFullYear()} Khushan Kanakrai</p>
+        <p>© {new Date().getFullYear()} {site.name}</p>
         <Link href="/" className="transition hover:text-[#A99CFF]">
           Khushan Kanakrai, Software Engineering
         </Link>

@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Navbar from "../../../components/Navbar";
-import PageBackground from "../../../components/PageBackground";
-import SiteFooter from "../../../components/SiteFooter";
+import Navbar from "@/components/Navbar";
+import PageBackground from "@/components/PageBackground";
+import SiteFooter from "@/components/SiteFooter";
 
 type ExperienceItem = {
   role: string;

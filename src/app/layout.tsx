@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { site } from "@/data/site";
+import { satoshi } from "@/fonts";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import PageBackground from "@/components/PageBackground";
@@ -61,15 +62,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap"
-        />
-      </head>
+    <html lang="en" className={satoshi.variable}>
 
-      <body className="font-satoshi antialiased">
+      <body className="font-sans antialiased">
         <MotionProvider>
         <SkipLink />
         <Navbar />

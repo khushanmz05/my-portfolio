@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, m } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -95,7 +95,7 @@ export default function Navbar() {
 
         <AnimatePresence>
           {menuOpen && (
-            <motion.nav
+            <m.nav
               id="mobile-navigation"
               initial={{ opacity: 0, y: -10, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -122,7 +122,7 @@ export default function Navbar() {
                   </Link>
                 );
               })}
-            </motion.nav>
+            </m.nav>
           )}
         </AnimatePresence>
       </div>

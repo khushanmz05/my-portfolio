@@ -1,9 +1,7 @@
-"use client";
-
 import Container from "@/components/Container";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import FadeIn from "@/components/motion/FadeIn";
 import FlagshipCard from "@/components/FlagshipCard";
 import { featuredProjects, primaryLink, projects } from "@/data/projects";
 import { site, socials } from "@/data/site";
@@ -34,10 +32,8 @@ export default function Home() {
       <Container>
 
         <section className="relative pb-16 md:pt-8">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
+          <FadeIn
+            data-hero
             className="grid gap-12 lg:grid-cols-[1.3fr_0.7fr] lg:items-center"
           >
             <div>
@@ -109,7 +105,7 @@ export default function Home() {
                 assistant, and looking for a team to build with.
               </p>
             </div>
-          </motion.div>
+          </FadeIn>
         </section>
 
         <section className="relative border-t border-[#2A2A31] py-12">

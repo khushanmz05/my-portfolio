@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import PageBackground from "@/components/PageBackground";
 import SiteFooter from "@/components/SiteFooter";
 import SkipLink from "@/components/SkipLink";
+import MotionProvider from "@/components/motion/MotionProvider";
 
 export const metadata: Metadata = {
   title: {
@@ -66,6 +67,7 @@ export default function RootLayout({
       </head>
 
       <body className="font-satoshi antialiased">
+        <MotionProvider>
         <SkipLink />
         <Navbar />
         <div className="relative min-h-screen overflow-x-clip">
@@ -75,6 +77,7 @@ export default function RootLayout({
           </main>
           <SiteFooter />
         </div>
+        </MotionProvider>
       </body>
     </html>
   );

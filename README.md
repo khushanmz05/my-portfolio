@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Khushan Kanakrai — Portfolio
 
-## Getting Started
+Personal portfolio built with Next.js (App Router), React 19, TypeScript, Tailwind CSS v4 and framer-motion. Every route is statically prerendered.
 
-First, run the development server:
+## Setup
+
+Install and run from **WSL/Linux**. Native packages (SWC, lightningcss) are platform-specific, so a `node_modules` installed from Windows will not build in WSL.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+nvm use        # Node 22 (see .nvmrc)
+npm ci
+npm run dev    # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Script | What it does |
+|---|---|
+| `npm run dev` | Development server |
+| `npm run build` / `npm start` | Production build / serve |
+| `npm run lint` | ESLint (next/core-web-vitals) |
+| `npm run typecheck` | `tsc --noEmit` |
+| `npm test` | Vitest unit and component tests (`tests/unit`) |
+| `npm run test:e2e` | Playwright browser tests (`tests/e2e`), which build and serve the site on port 3100 |
+| `npm run check` | lint + typecheck + unit tests |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The first time you run the e2e tests, install the browser: `npx playwright install --with-deps chromium`.
 
-## Learn More
+## Configuration
 
-To learn more about Next.js, take a look at the following resources:
+- `NEXT_PUBLIC_SITE_URL`: the public URL used for canonical links, Open Graph and the sitemap. Defaults to `https://khushan-kanakrai.vercel.app`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Content
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Projects: `src/data/projects.ts`
+- Case studies: `src/data/case-studies.ts`
+- Contact details and CV path: `src/data/site.ts`

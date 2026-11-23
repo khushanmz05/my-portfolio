@@ -3,19 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import ProjectCover from "@/components/ProjectCover";
 import { metricsSentence, type Project } from "@/data/projects";
+import type { CaseStudyFocus, CaseStudySection } from "@/data/case-studies";
 
-export type CaseStudySection = {
-  label: string;
-  title: string;
-  body?: string;
-  bullets?: string[];
-  wide?: boolean;
-};
-
-export type CaseStudyFocus = {
-  title: string;
-  body: string;
-};
 
 type CaseStudyLayoutProps = {
   project: Project;

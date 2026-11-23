@@ -7,7 +7,7 @@ import Navbar from "@/components/Navbar";
 import PageBackground from "@/components/PageBackground";
 import SiteFooter from "@/components/SiteFooter";
 import FlagshipCard from "@/components/FlagshipCard";
-import { featuredProjects, projects } from "@/data/projects";
+import { featuredProjects, primaryLink, projects } from "@/data/projects";
 import { site, socials } from "@/data/site";
 
 const strengths = [
@@ -161,31 +161,57 @@ export default function Home() {
           )}
 
           <div className="mt-10 border-t border-[#2A2A31]">
-            {secondaryWork.map((project) => (
-              <Link
-                key={project.slug}
-                href={project.caseStudy ?? "/projects"}
-                className="group grid gap-3 border-b border-[#2A2A31] py-6 sm:grid-cols-[220px_1fr_auto] sm:items-baseline"
-              >
-                <p className="text-sm leading-6 text-[#8B8B95]">
-                  {project.role}
-                  <span className="block text-[#8B8B95]">{project.year}</span>
-                </p>
-
-                <div>
-                  <h3 className="text-xl font-semibold text-white transition group-hover:text-[#A99CFF]">
-                    {project.title}
-                  </h3>
-                  <p className="mt-1 text-sm leading-6 text-[#A1A1AA]">
-                    {project.tagline}
+            {secondaryWork.map((project) => {
+              const link = primaryLink(project);
+              const rowClass =
+                "group grid gap-3 border-b border-[#2A2A31] py-6 sm:grid-cols-[220px_1fr_auto] sm:items-baseline";
+              const content = (
+                <>
+                  <p className="text-sm leading-6 text-[#8B8B95]">
+                    {project.role}
+                    <span className="block text-[#8B8B95]">{project.year}</span>
                   </p>
-                </div>
 
-                <span className="text-sm font-medium text-[#A1A1AA] transition group-hover:text-white">
-                  Case study
-                </span>
-              </Link>
-            ))}
+                  <div>
+                    <h3 className="text-xl font-semibold text-white transition group-hover:text-[#A99CFF]">
+                      {project.title}
+                    </h3>
+                    <p className="mt-1 text-sm leading-6 text-[#A1A1AA]">
+                      {project.tagline}
+                    </p>
+                  </div>
+
+                  {link && (
+                    <span className="text-sm font-medium text-[#A1A1AA] transition group-hover:text-white">
+                      {link.label}
+                    </span>
+                  )}
+                </>
+              );
+
+              if (!link)
+                return (
+                  <div key={project.slug} className={rowClass}>
+                    {content}
+                  </div>
+                );
+
+              return link.external ? (
+                <a
+                  key={project.slug}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={rowClass}
+                >
+                  {content}
+                </a>
+              ) : (
+                <Link key={project.slug} href={link.href} className={rowClass}>
+                  {content}
+                </Link>
+              );
+            })}
           </div>
 
           <SiteFooter />

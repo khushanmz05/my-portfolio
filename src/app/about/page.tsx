@@ -1,103 +1,147 @@
-"use client";
-
+import type { Metadata } from "next";
+import ButtonLink from "@/components/ButtonLink";
+import Container from "@/components/Container";
 import Image from "next/image";
-import Navbar from "../../../components/Navbar";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { useState, useEffect } from "react";
+import { site, socials } from "@/data/site";
+
+const places = [
+  {
+    name: "Mozambique",
+    paragraphs: [
+      "I was born and raised here, and it is where I first got curious about computers — less about using them than about why they broke.",
+      "It is also where I did my first real IT work: six months as a technician in Tete after my first year at Epitech, covering hardware, Windows, printers, client networks, CCTV and support for people who just needed their machine to work.",
+      "Most of that job was diagnosis, often with someone waiting. It taught me to debug under real constraints and to explain a fix in plain language.",
+    ],
+  },
+  {
+    name: "Malawi",
+    paragraphs: [
+      "I moved here for high school and stayed six years, finishing with an IGCSE.",
+      "Six years away from home taught me to ask questions early instead of pretending I understood. I still try to work that way.",
+    ],
+  },
+  {
+    name: "Barcelona",
+    paragraphs: [
+      "I moved back to Mozambique after Malawi, then to Barcelona the same year, for Epitech. The first year was C, memory and a lot of debugging; since then I have moved into full-stack development and AI.",
+      "I now build products end to end: React and Next.js interfaces, Node and Python APIs, and local models where they make sense. The systems foundation explains what the abstractions hide; the products are where I want to spend my time.",
+    ],
+  },
+];
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "I came to software through hardware: from IT support in Mozambique to full-stack and AI engineering in Barcelona.",
+  alternates: { canonical: "/about" },
+};
 
 export default function About() {
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    setLoaded(true);
-  }, []);
-
   return (
-    <div className="grid grid-rows-[auto_1fr_auto] items-start justify-items-center min-h-screen p-8 pb-20 gap-12 sm:p-20 font-[family-name:var(--font-geist-sans)] bg-gray-50 text-gray-800">
-      <Navbar />
+    <>
 
-      <main
-        className={`max-w-3xl w-full text-center space-y-10
-        transition-opacity duration-1000 ease-in-out
-        ${loaded ? "opacity-100" : "opacity-0"}`}
-      >
-        <Image
-          src="/Image.jpeg"
-          alt="Portrait of Khushan Kanakrai"
-          width={160}
-          height={160}
-          className="rounded-full mx-auto shadow-md"
-        />
+      <Container>
 
-        <h1 className="text-4xl font-bold text-blue-700">About Me</h1>
+        <div className="relative max-w-3xl">
+          <header className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-8">
+            <div className="relative aspect-[4/5] w-28 shrink-0 overflow-hidden rounded-[20px] border border-line bg-surface sm:w-40">
+              <Image
+                src="/Image-portrait.jpeg"
+                alt="Khushan Kanakrai"
+                fill
+                priority
+                sizes="(min-width: 640px) 160px, 112px"
+                className="object-cover"
+              />
+            </div>
 
-        <p className="text-lg sm:text-xl leading-relaxed max-w-xl mx-auto">
-          I&apos;m a passionate software developer with a strong foundation in both low-level and high-level programming. At Epitech, I&apos;m diving deep into system programming, memory management, and core computer science concepts that form the backbone of great software.
+            <div className="sm:pt-2">
+              <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
+                Khushan Kanakrai
+              </h1>
+              <p className="mt-3 max-w-md text-sm leading-6 text-muted md:text-base">
+                Software engineering student at Epitech Barcelona. Portuguese,
+                English and French.
+              </p>
+            </div>
+          </header>
 
-          My expertise spans from low-level C programming to modern web development with TypeScript and React. I enjoy tackling complex problems and writing efficient, clean code that&apos;s both performant and maintainable. Whether it&apos;s building system-level tools, developing full-stack applications, or working on data analysis projects, I&apos;m always eager to learn and apply new technologies.
+          <p className="mt-10 max-w-2xl text-xl leading-9 text-fg-2 md:text-2xl md:leading-10">
+            I came to software through hardware. Before I was writing React or
+            running local models, I was reinstalling Windows, configuring
+            printers and tracing why a client&apos;s network had dropped. That
+            background still shapes how I work: start from the failure, not the
+            framework.
+          </p>
 
-          Beyond coding, I&apos;m committed to continuous learning and staying current with industry best practices. I believe in writing code that not only works but is also well-documented, tested, and follows modern development standards.
-        </p>
-
-        <div className="bg-white shadow-lg rounded-xl p-6 space-y-4">
-          <h2 className="text-2xl font-semibold text-gray-900">Skills</h2>
-          <ul className="grid sm:grid-cols-2 gap-2 text-left list-disc list-inside">
-            {[
-              "C (pointers, memory management, file I/O)",
-              "Unix/Linux fundamentals",
-              "Makefiles & shell scripting basics",
-              "Git & GitHub",
-              "Basic HTML & CSS",
-              "Learning TypeScript + Next.js (this site!)",
-            ].map((skill, index) => (
-              <li
-                key={index}
-                className="hover:text-blue-600 hover:scale-105 transition-transform duration-200 cursor-pointer"
+          <div className="mt-14 border-t border-line">
+            {places.map((place) => (
+              <section
+                key={place.name}
+                className="border-b border-line py-8 md:grid md:grid-cols-[160px_1fr] md:gap-8"
               >
-                {skill}
-              </li>
+                <h2 className="text-2xl font-semibold tracking-tight">
+                  {place.name}
+                </h2>
+
+                <div className="mt-3 space-y-3 md:mt-0">
+                  {place.paragraphs.map((paragraph, index) => (
+                    <p
+                      key={paragraph}
+                      className={
+                        index === place.paragraphs.length - 1
+                          ? "text-base leading-7 text-fg-2"
+                          : "text-base leading-7 text-fg-3"
+                      }
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </section>
             ))}
-          </ul>
-        </div>
-
-        <div className="mt-8">
-          <a
-            href="/Khushan CV.pdf"
-            download="Khushan_Kanakrai_CV.pdf"
-            className="inline-block px-6 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800 transition"
-          >
-            📄 Download Resume
-          </a>
-        </div>
-
-        <div className="pt-8 space-y-3">
-          <h2 className="text-xl font-semibold">Let&apos;s Connect</h2>
-          <div className="flex justify-center gap-6 text-2xl">
-            <a
-              href="https://github.com/khushanmz05"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gray-900 transition-colors"
-              aria-label="GitHub Profile"
-            >
-              <FaGithub />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/khushan-kanakrai-170060310/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-blue-700 transition-colors"
-              aria-label="LinkedIn Profile"
-            >
-              <FaLinkedin />
-            </a>
           </div>
-        </div>
-      </main>
 
-      <footer className="text-sm text-gray-500 mt-12">
-        &copy; {new Date().getFullYear()} Khushan Kanakrai. All rights reserved.
-      </footer>
-    </div>
+          <section className="mt-16">
+            <h2 className="text-2xl font-semibold tracking-tight">Now</h2>
+            <p className="mt-3 max-w-xl text-base leading-7 text-fg-3">
+              I&apos;m studying at Epitech Barcelona, building Sensai and other
+              local-first AI tools. I&apos;m looking for a full-stack or AI
+              engineering internship where I can keep shipping.
+            </p>
+
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <ButtonLink href={`mailto:${site.email}`}>Email me</ButtonLink>
+              <ButtonLink href="/projects" variant="secondary">
+                See the work
+              </ButtonLink>
+            </div>
+
+            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-fg-3">
+              {socials
+                .filter((social) => social.external)
+                .map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="tap underline decoration-line-strong underline-offset-4 transition hover:text-white hover:decoration-accent"
+                  >
+                    {social.label}
+                  </a>
+                ))}
+              <a
+                href={site.cvPath}
+                download
+                className="tap underline decoration-line-strong underline-offset-4 transition hover:text-white hover:decoration-accent"
+              >
+                CV
+              </a>
+            </div>
+          </section>
+        </div>
+      </Container>
+    </>
   );
 }

@@ -42,3 +42,8 @@ next-env.d.ts
 
 # superpowers plan workspaces
 /.superpowers/
+
+# playwright
+/test-results/
+/playwright-report/
+/blob-report/

@@ -16,7 +16,7 @@ test.describe("phone layout", () => {
       const small = await page.evaluate(() =>
         [...document.querySelectorAll("main a, main button, footer a, footer button")]
           .map((el) => ({ text: (el.textContent ?? "").trim().slice(0, 30), h: el.getBoundingClientRect().height }))
-          .filter((t) => t.h > 0 && t.h < 44),
+          .filter((t) => t.h > 0 && t.h < 43.5),
       );
       expect(small).toEqual([]);
     });

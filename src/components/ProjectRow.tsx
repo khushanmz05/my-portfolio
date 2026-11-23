@@ -3,8 +3,8 @@ import type { Project } from "@/data/projects";
 
 export default function ProjectRow({ project }: { project: Project }) {
   return (
-    <article className="grid gap-x-6 gap-y-2 border-b border-[#2A2A31] py-5 sm:grid-cols-[220px_1fr_auto] sm:items-baseline">
-      <p className="text-sm leading-6 text-[#8B8B95]">
+    <article className="grid gap-x-6 gap-y-2 border-b border-line py-5 sm:grid-cols-[220px_1fr_auto] sm:items-baseline">
+      <p className="text-sm leading-6 text-muted">
         {project.role}
         <span className="block">{project.year}</span>
       </p>
@@ -14,7 +14,7 @@ export default function ProjectRow({ project }: { project: Project }) {
           {project.caseStudy ? (
             <Link
               href={project.caseStudy}
-              className="transition hover:text-[#A99CFF]"
+              className="transition hover:text-accent-text"
             >
               {project.title}
             </Link>
@@ -23,11 +23,11 @@ export default function ProjectRow({ project }: { project: Project }) {
           )}
         </h3>
 
-        <p className="mt-1 text-sm leading-6 text-[#A1A1AA]">
+        <p className="mt-1 text-sm leading-6 text-fg-3">
           {project.tagline}
         </p>
 
-        <p className="mt-1 text-xs leading-5 text-[#8B8B95]">
+        <p className="mt-1 text-xs leading-5 text-muted">
           {project.stack.join(", ")}
         </p>
       </div>
@@ -36,7 +36,7 @@ export default function ProjectRow({ project }: { project: Project }) {
         {project.caseStudy && (
           <Link
             href={project.caseStudy}
-            className="font-medium text-[#A99CFF] transition hover:text-white"
+            className="font-medium text-accent-text transition hover:text-white"
           >
             Case study
           </Link>
@@ -47,7 +47,7 @@ export default function ProjectRow({ project }: { project: Project }) {
             href={project.live}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#D4D4D8] transition hover:text-white"
+            className="text-fg-2 transition hover:text-white"
           >
             Live
           </a>
@@ -58,14 +58,14 @@ export default function ProjectRow({ project }: { project: Project }) {
             href={project.repo}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#A1A1AA] transition hover:text-white"
+            className="text-fg-3 transition hover:text-white"
           >
             Repository
           </a>
         )}
 
         {!project.repo && project.repoNote && (
-          <span className="text-xs text-[#8B8B95]">{project.repoNote}</span>
+          <span className="text-xs text-muted">{project.repoNote}</span>
         )}
       </div>
     </article>

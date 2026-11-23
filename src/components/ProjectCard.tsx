@@ -13,7 +13,7 @@ function ProjectLinks({ project }: { project: Project }) {
       {project.caseStudy && (
         <Link
           href={project.caseStudy}
-          className="font-medium text-[#A99CFF] transition hover:text-white"
+          className="font-medium text-accent-text transition hover:text-white"
         >
           Read case study
         </Link>
@@ -24,7 +24,7 @@ function ProjectLinks({ project }: { project: Project }) {
           href={project.live}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-medium text-[#D4D4D8] transition hover:text-white"
+          className="font-medium text-fg-2 transition hover:text-white"
         >
           Live site
         </a>
@@ -35,14 +35,14 @@ function ProjectLinks({ project }: { project: Project }) {
           href={project.repo}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[#A1A1AA] transition hover:text-white"
+          className="text-fg-3 transition hover:text-white"
         >
           Repository
         </a>
       )}
 
       {!project.repo && project.repoNote && (
-        <span className="text-xs text-[#8B8B95]" title={project.repoNote}>
+        <span className="text-xs text-muted" title={project.repoNote}>
           {project.repoNote}
         </span>
       )}
@@ -52,8 +52,8 @@ function ProjectLinks({ project }: { project: Project }) {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-[20px] border border-[#2A2A31] bg-[#18181B] transition duration-300 hover:border-[#8B7CF6]/45">
-      <div className="relative aspect-[16/9] overflow-hidden border-b border-[#2A2A31] bg-[#0F0F12]">
+    <article className="group flex h-full flex-col overflow-hidden rounded-[20px] border border-line bg-surface transition duration-300 hover:border-accent/45">
+      <div className="relative aspect-[16/9] overflow-hidden border-b border-line bg-inset">
         {project.image ? (
           <Image
             src={project.image}
@@ -69,21 +69,21 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
       <div className="flex flex-1 flex-col p-6 sm:p-7">
         <div className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-2 text-xs">
-          <span className="rounded-full border border-[#2A2A31] px-2.5 py-1 font-medium text-[#8B8B95]">
+          <span className="rounded-full border border-line px-2.5 py-1 font-medium text-muted">
             {project.categories[0]}
           </span>
-          <span className="text-[#8B8B95]">
+          <span className="text-muted">
             {project.role} / {project.year}
           </span>
         </div>
 
-        <h3 className="text-2xl font-semibold tracking-tight text-white transition group-hover:text-[#A99CFF]">
+        <h3 className="text-2xl font-semibold tracking-tight text-white transition group-hover:text-accent-text">
           {project.title}
         </h3>
-        <p className="mt-1 text-sm font-medium text-[#D4D4D8]">
+        <p className="mt-1 text-sm font-medium text-fg-2">
           {project.tagline}
         </p>
-        <p className="mt-4 max-w-2xl text-sm leading-6 text-[#A1A1AA]">
+        <p className="mt-4 max-w-2xl text-sm leading-6 text-fg-3">
           {project.description}
         </p>
 
@@ -91,7 +91,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           {project.stack.map((tag) => (
             <span
               key={tag}
-              className="rounded-full border border-[#2A2A31] px-3 py-1 text-xs text-[#D4D4D8]"
+              className="rounded-full border border-line px-3 py-1 text-xs text-fg-2"
             >
               {tag}
             </span>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import ButtonLink from "@/components/ButtonLink";
 import Container from "@/components/Container";
 import Image from "next/image";
-import Link from "next/link";
 import { site, socials } from "@/data/site";
 
 const places = [
@@ -44,7 +44,7 @@ export default function About() {
 
         <div className="relative max-w-3xl">
           <header className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-8">
-            <div className="relative aspect-[4/5] w-28 shrink-0 overflow-hidden rounded-[20px] border border-[#2A2A31] bg-[#18181B] sm:w-40">
+            <div className="relative aspect-[4/5] w-28 shrink-0 overflow-hidden rounded-[20px] border border-line bg-surface sm:w-40">
               <Image
                 src="/Image-portrait.jpeg"
                 alt="Khushan Kanakrai"
@@ -59,14 +59,14 @@ export default function About() {
               <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
                 Khushan Kanakrai
               </h1>
-              <p className="mt-3 max-w-md text-sm leading-6 text-[#8B8B95] md:text-base">
+              <p className="mt-3 max-w-md text-sm leading-6 text-muted md:text-base">
                 Software engineering student at Epitech Barcelona. Portuguese,
                 English and French.
               </p>
             </div>
           </header>
 
-          <p className="mt-10 max-w-2xl text-xl leading-9 text-[#D4D4D8] md:text-2xl md:leading-10">
+          <p className="mt-10 max-w-2xl text-xl leading-9 text-fg-2 md:text-2xl md:leading-10">
             I came to software through hardware. Before I was writing React or
             running local models, I was reinstalling Windows, configuring
             printers and tracing why a client&apos;s network had dropped. That
@@ -74,11 +74,11 @@ export default function About() {
             framework.
           </p>
 
-          <div className="mt-14 border-t border-[#2A2A31]">
+          <div className="mt-14 border-t border-line">
             {places.map((place) => (
               <section
                 key={place.name}
-                className="border-b border-[#2A2A31] py-8 md:grid md:grid-cols-[160px_1fr] md:gap-8"
+                className="border-b border-line py-8 md:grid md:grid-cols-[160px_1fr] md:gap-8"
               >
                 <h2 className="text-2xl font-semibold tracking-tight">
                   {place.name}
@@ -90,8 +90,8 @@ export default function About() {
                       key={paragraph}
                       className={
                         index === place.paragraphs.length - 1
-                          ? "text-base leading-7 text-[#D4D4D8]"
-                          : "text-base leading-7 text-[#A1A1AA]"
+                          ? "text-base leading-7 text-fg-2"
+                          : "text-base leading-7 text-fg-3"
                       }
                     >
                       {paragraph}
@@ -104,28 +104,20 @@ export default function About() {
 
           <section className="mt-16">
             <h2 className="text-2xl font-semibold tracking-tight">Now</h2>
-            <p className="mt-3 max-w-xl text-base leading-7 text-[#A1A1AA]">
+            <p className="mt-3 max-w-xl text-base leading-7 text-fg-3">
               I&apos;m studying at Epitech Barcelona, building Sensai and other
               local-first AI tools. I&apos;m looking for a full-stack or AI
               engineering internship where I can keep shipping.
             </p>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <a
-                href={`mailto:${site.email}`}
-                className="inline-flex items-center justify-center rounded-full bg-[#8B7CF6] px-6 py-3 text-sm font-medium text-white shadow-[0_8px_24px_rgba(139,124,246,0.35)] transition hover:bg-[#9A8CFF]"
-              >
-                Email me
-              </a>
-              <Link
-                href="/projects"
-                className="inline-flex items-center justify-center rounded-full border border-[#2A2A31] bg-[#18181B] px-6 py-3 text-sm font-medium text-[#F3F3F5] transition hover:border-[#8B7CF6]/40 hover:bg-[#1D1D22]"
-              >
+              <ButtonLink href={`mailto:${site.email}`}>Email me</ButtonLink>
+              <ButtonLink href="/projects" variant="secondary">
                 See the work
-              </Link>
+              </ButtonLink>
             </div>
 
-            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-[#A1A1AA]">
+            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-fg-3">
               {socials
                 .filter((social) => social.external)
                 .map((social) => (
@@ -134,7 +126,7 @@ export default function About() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="underline decoration-[#3A3A42] underline-offset-4 transition hover:text-white hover:decoration-[#8B7CF6]"
+                    className="underline decoration-line-strong underline-offset-4 transition hover:text-white hover:decoration-accent"
                   >
                     {social.label}
                   </a>
@@ -142,7 +134,7 @@ export default function About() {
               <a
                 href={site.cvPath}
                 download
-                className="underline decoration-[#3A3A42] underline-offset-4 transition hover:text-white hover:decoration-[#8B7CF6]"
+                className="underline decoration-line-strong underline-offset-4 transition hover:text-white hover:decoration-accent"
               >
                 CV
               </a>

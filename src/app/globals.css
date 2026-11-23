@@ -1,14 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  --background: #121214;
-  --foreground: #f3f3f5;
   color-scheme: dark;
 }
 
+@theme {
+  --color-bg: #121214;
+  --color-surface: #18181b;
+  --color-surface-2: #1d1d22;
+  --color-inset: #0f0f12;
+  --color-line: #2a2a31;
+  --color-line-strong: #3f3f46;
+  --color-fg: #f3f3f5;
+  --color-fg-2: #d4d4d8;
+  --color-fg-3: #a1a1aa;
+  --color-muted: #8b8b95;
+  --color-accent: #8b7cf6;
+  --color-accent-text: #a99cff;
+  --color-accent-strong: #6e5ae6;
+  --color-accent-strong-hover: #5f4bd8;
+  --color-ok: #7fe0c3;
+}
+
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-satoshi), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", sans-serif;
 }
@@ -18,20 +32,20 @@ html {
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--color-bg);
+  color: var(--color-fg);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: #8b7cf6;
+  background: var(--color-accent-strong);
   color: #ffffff;
 }
 
 :focus-visible {
-  outline: 2px solid #a99cff;
+  outline: 2px solid var(--color-accent-text);
   outline-offset: 3px;
 }
 

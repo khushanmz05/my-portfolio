@@ -18,14 +18,14 @@ export default function Projects() {
           Projects
         </h1>
 
-        <p className="mt-5 text-base leading-7 text-[#A1A1AA] md:text-lg">
+        <p className="mt-5 text-base leading-7 text-fg-3 md:text-lg">
           Full-stack products, AI systems and the occasional low-level
           detour. Most of this work started as an Epitech brief; the
           strongest pieces grew into something I kept building after the
           deadline.
         </p>
 
-        <p className="mt-6 text-sm text-[#8B8B95]">
+        <p className="mt-6 text-sm text-muted">
           {projects.length} projects across {categories.length - 1}{" "}
           disciplines since 2024.
         </p>

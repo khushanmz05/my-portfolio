@@ -50,26 +50,26 @@ export default function Education() {
             <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
               Education
             </h1>
-            <p className="mt-5 text-base leading-7 text-[#A1A1AA] md:text-lg">
+            <p className="mt-5 text-base leading-7 text-fg-3 md:text-lg">
               My academic path from secondary school to a software engineering
               degree focused on full-stack development, AI and systems
               fundamentals.
             </p>
           </div>
 
-          <div className="relative border-l border-[#2A2A31] pl-8">
+          <div className="relative border-l border-line pl-8">
             {education.map((item) => (
               <section
                 key={item.school}
                 className="relative mb-12 last:mb-0"
               >
-                <span className="absolute -left-[41px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full border border-[#8B7CF6] bg-[#121214]">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#8B7CF6]" />
+                <span className="absolute -left-[41px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full border border-accent-strong bg-bg">
+                  <span className="h-1.5 w-1.5 rounded-full bg-accent-strong" />
                 </span>
 
-                <div className="rounded-[20px] border border-[#2A2A31] bg-[#18181B] p-8">
+                <div className="rounded-[20px] border border-line bg-surface p-8">
                   <div className="mb-4 flex items-center gap-4">
-                    <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center overflow-hidden rounded-full border border-[#2A2A31] bg-white">
+                    <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center overflow-hidden rounded-full border border-line bg-white">
                       <Image
                         src={item.logo}
                         alt={`${item.school} logo`}
@@ -85,22 +85,22 @@ export default function Education() {
                           href={item.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="transition hover:text-[#A99CFF]"
+                          className="transition hover:text-accent-text"
                         >
                           {item.school}
                         </a>
                       </h2>
-                      <span className="text-sm text-[#8B8B95]">
+                      <span className="text-sm text-muted">
                         {item.years}
                       </span>
                     </div>
                   </div>
 
-                  <p className="mb-3 text-sm font-medium text-[#D4D4D8]">
+                  <p className="mb-3 text-sm font-medium text-fg-2">
                     {item.degree}
                   </p>
 
-                  <p className="text-sm leading-6 text-[#A1A1AA] md:text-base">
+                  <p className="text-sm leading-6 text-fg-3 md:text-base">
                     {item.description}
                   </p>
                 </div>

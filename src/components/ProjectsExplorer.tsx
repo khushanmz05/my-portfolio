@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { buttonStyles } from "@/components/ButtonLink";
 import ProjectCard from "@/components/ProjectCard";
 import ProjectRow from "@/components/ProjectRow";
 import FlagshipCard from "@/components/FlagshipCard";
@@ -52,8 +53,8 @@ export default function ProjectsExplorer() {
               }}
               className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
                 active
-                  ? "border-[#8B7CF6] bg-[#8B7CF6] text-white"
-                  : "border-[#2A2A31] bg-[#18181B] text-[#A1A1AA] hover:border-[#8B7CF6]/40 hover:text-white"
+                  ? "border-accent-strong bg-accent-strong text-white"
+                  : "border-line bg-surface text-fg-3 hover:border-accent/40 hover:text-white"
               }`}
             >
               {category}
@@ -72,7 +73,7 @@ export default function ProjectsExplorer() {
               >
                 Flagship
               </h2>
-              <p className="mt-2 text-sm text-[#A1A1AA]">
+              <p className="mt-2 text-sm text-fg-3">
                 The project that best shows how I work.
               </p>
             </div>
@@ -91,7 +92,7 @@ export default function ProjectsExplorer() {
             >
               Also featured
             </h2>
-            <p className="mt-2 text-sm text-[#A1A1AA]">
+            <p className="mt-2 text-sm text-fg-3">
               Three more across AI, full-stack and product work.
             </p>
 
@@ -110,12 +111,12 @@ export default function ProjectsExplorer() {
               >
                 More projects
               </h2>
-              <p className="mt-2 text-sm text-[#A1A1AA]">
+              <p className="mt-2 text-sm text-fg-3">
                 Smaller builds, coursework and experiments across the stack.
               </p>
             </div>
 
-            <div className="mt-6 border-t border-[#2A2A31]">
+            <div className="mt-6 border-t border-line">
               {visible.map((project) => (
                 <ProjectRow key={project.slug} project={project} />
               ))}
@@ -126,7 +127,7 @@ export default function ProjectsExplorer() {
                 <button
                   type="button"
                   onClick={() => setShowAll(true)}
-                  className="rounded-full border border-[#2A2A31] bg-[#18181B] px-6 py-3 text-sm font-medium text-[#F3F3F5] transition hover:border-[#8B7CF6]/40 hover:bg-[#1D1D22]"
+                  className={buttonStyles.secondary}
                 >
                   Show {regularProjects.length - visible.length} more{" "}
                   {regularProjects.length - visible.length === 1
@@ -147,7 +148,7 @@ export default function ProjectsExplorer() {
               >
                 {filter}
               </h2>
-              <p className="mt-2 text-sm text-[#A1A1AA]">
+              <p className="mt-2 text-sm text-fg-3">
                 {filtered.length}{" "}
                 {filtered.length === 1 ? "project" : "projects"} in this
                 discipline.
@@ -156,13 +157,13 @@ export default function ProjectsExplorer() {
             <button
               type="button"
               onClick={() => setFilter("All")}
-              className="text-sm font-medium text-[#A99CFF] transition hover:text-white"
+              className="text-sm font-medium text-accent-text transition hover:text-white"
             >
               Clear filter
             </button>
           </div>
 
-          <div className="mt-6 border-t border-[#2A2A31]">
+          <div className="mt-6 border-t border-line">
             {filtered.map((project) => (
               <ProjectRow key={project.slug} project={project} />
             ))}

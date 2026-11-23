@@ -49,7 +49,7 @@ export default function Experience() {
             <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
               Experience
             </h1>
-            <p className="mt-5 text-base leading-7 text-[#A1A1AA] md:text-lg">
+            <p className="mt-5 text-base leading-7 text-fg-3 md:text-lg">
               Six months of IT support in Tete, Mozambique — the job that taught
               me to debug with someone standing over my shoulder.
             </p>
@@ -58,11 +58,11 @@ export default function Experience() {
           {experience.map((item) => (
             <section
               key={item.company}
-              className="mt-14 border-t border-[#2A2A31] pt-8"
+              className="mt-14 border-t border-line pt-8"
             >
               <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                 <div className="flex items-start gap-4">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[#2A2A31] bg-white">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full border border-line bg-white">
                     <Image
                       src={item.logo}
                       alt={`${item.company} logo`}
@@ -76,26 +76,26 @@ export default function Experience() {
                     <h2 className="text-2xl font-semibold tracking-tight text-white">
                       {item.role}
                     </h2>
-                    <p className="mt-1 text-sm font-medium text-[#D4D4D8]">
+                    <p className="mt-1 text-sm font-medium text-fg-2">
                       {item.company}, {item.location}
                     </p>
                   </div>
                 </div>
 
-                <span className="text-sm text-[#8B8B95]">{item.dates}</span>
+                <span className="text-sm text-muted">{item.dates}</span>
               </div>
 
-              <p className="mt-6 text-base leading-7 text-[#A1A1AA]">
+              <p className="mt-6 text-base leading-7 text-fg-3">
                 {item.summary}
               </p>
 
-              <div className="mt-6 border-t border-[#2A2A31] pt-5">
-                <p className="text-sm font-medium text-[#8B8B95]">What I did</p>
+              <div className="mt-6 border-t border-line pt-5">
+                <p className="text-sm font-medium text-muted">What I did</p>
 
-                <ul className="mt-4 space-y-3 text-sm leading-6 text-[#A1A1AA] md:text-base">
+                <ul className="mt-4 space-y-3 text-sm leading-6 text-fg-3 md:text-base">
                   {item.highlights.map((highlight) => (
                     <li key={highlight} className="flex gap-3">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#8B7CF6]" />
+                      <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                       <span>{highlight}</span>
                     </li>
                   ))}

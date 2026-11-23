@@ -50,3 +50,15 @@ test.describe("mobile navigation", () => {
     }
   });
 });
+
+test.describe("mobile menu on a short viewport (400% zoom)", () => {
+  test.use({ viewport: { width: 320, height: 180 } });
+  test("last menu link can be reached", async ({ page }) => {
+    await page.goto("/about");
+    await page.locator('button[aria-controls="mobile-navigation"]').click();
+    const last = page.locator("#mobile-navigation a").last();
+    await last.scrollIntoViewIfNeeded();
+    const box = await last.boundingBox();
+    expect(box!.y + box!.height).toBeLessThanOrEqual(180);
+  });
+});

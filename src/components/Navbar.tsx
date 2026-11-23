@@ -151,7 +151,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-x-6 top-[4.5rem] rounded-[20px] border border-line bg-surface/95 p-2 shadow-[0_16px_40px_rgba(0,0,0,0.4)] backdrop-blur-md"
+              className="absolute inset-x-6 top-[4.5rem] max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain rounded-[20px] border border-line bg-surface/95 p-2 shadow-[0_16px_40px_rgba(0,0,0,0.4)] backdrop-blur-md"
             >
               {links.map((link) => {
                 const active = isActive(link.href);

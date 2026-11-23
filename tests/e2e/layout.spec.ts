@@ -42,16 +42,28 @@ for (const route of ["/projects", "/education"]) {
   test(`body copy stays under 80 characters per line on ${route}`, async ({ page }, info) => {
     test.skip(info.project.name !== "desktop");
     await page.goto(route);
-    const worst = await page.evaluate(() =>
-      Math.max(
-        ...[...document.querySelectorAll("main p")].map((p) => {
-          const text = (p.textContent ?? "").trim();
-          const lineHeight = parseFloat(getComputedStyle(p).lineHeight);
-          const lines = Math.round(p.getBoundingClientRect().height / lineHeight);
-          return lines > 1 ? text.length / (lines - 0.5) : 0;
-        }),
-      ),
-    );
+    // Longest rendered line, in characters: group each character by its line box.
+    const worst = await page.evaluate(() => {
+      let max = 0;
+      for (const p of document.querySelectorAll("main p")) {
+        const perLine = new Map<number, number>();
+        const walker = document.createTreeWalker(p, NodeFilter.SHOW_TEXT);
+        const range = document.createRange();
+        for (let node = walker.nextNode(); node; node = walker.nextNode()) {
+          const text = node.textContent ?? "";
+          for (let i = 0; i < text.length; i++) {
+            range.setStart(node, i);
+            range.setEnd(node, i + 1);
+            const rect = range.getClientRects()[0];
+            if (!rect) continue;
+            const top = Math.round(rect.top);
+            perLine.set(top, (perLine.get(top) ?? 0) + 1);
+          }
+        }
+        for (const count of perLine.values()) max = Math.max(max, count);
+      }
+      return max;
+    });
     expect(worst).toBeLessThanOrEqual(80);
   });
 }

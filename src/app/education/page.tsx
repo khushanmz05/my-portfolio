@@ -50,7 +50,7 @@ export default function Education() {
             <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
               Education
             </h1>
-            <p className="mt-5 text-base leading-7 text-fg-3 md:text-lg">
+            <p className="mt-5 max-w-[50ch] text-base leading-7 text-fg-3 md:text-lg">
               My academic path from secondary school to a software engineering
               degree focused on full-stack development, AI and systems
               fundamentals.
@@ -100,7 +100,7 @@ export default function Education() {
                     {item.degree}
                   </p>
 
-                  <p className="max-w-[56ch] text-sm leading-6 text-fg-3 md:text-base">
+                  <p className="max-w-[50ch] text-sm leading-6 text-fg-3 md:text-base">
                     {item.description}
                   </p>
                 </div>

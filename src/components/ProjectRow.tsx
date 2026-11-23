@@ -14,7 +14,7 @@ export default function ProjectRow({ project }: { project: Project }) {
           {project.caseStudy ? (
             <Link
               href={project.caseStudy}
-              className="transition hover:text-accent-text"
+              className="tap transition hover:text-accent-text"
             >
               {project.title}
             </Link>
@@ -36,7 +36,7 @@ export default function ProjectRow({ project }: { project: Project }) {
         {project.caseStudy && (
           <Link
             href={project.caseStudy}
-            className="font-medium text-accent-text transition hover:text-white"
+            className="tap font-medium text-accent-text transition hover:text-white"
           >
             Case study
           </Link>
@@ -47,7 +47,7 @@ export default function ProjectRow({ project }: { project: Project }) {
             href={project.live}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-fg-2 transition hover:text-white"
+            className="tap text-fg-2 transition hover:text-white"
           >
             Live
           </a>
@@ -58,7 +58,7 @@ export default function ProjectRow({ project }: { project: Project }) {
             href={project.repo}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-fg-3 transition hover:text-white"
+            className="tap text-fg-3 transition hover:text-white"
           >
             Repository
           </a>

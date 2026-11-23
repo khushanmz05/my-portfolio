@@ -59,7 +59,7 @@ export default function FlagshipCard({ project }: FlagshipCardProps) {
           <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
             <Link
               href={caseStudy}
-              className="font-medium text-accent-text transition hover:text-white"
+              className="tap font-medium text-accent-text transition hover:text-white"
             >
               Read the case study
             </Link>
@@ -69,7 +69,7 @@ export default function FlagshipCard({ project }: FlagshipCardProps) {
                 href={project.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-fg-2 underline decoration-line-strong underline-offset-4 transition hover:decoration-accent hover:text-white"
+                className="tap text-fg-2 underline decoration-line-strong underline-offset-4 transition hover:decoration-accent hover:text-white"
               >
                 Live site
               </a>
@@ -80,7 +80,7 @@ export default function FlagshipCard({ project }: FlagshipCardProps) {
                 href={project.repo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-fg-3 underline decoration-line-strong underline-offset-4 transition hover:decoration-accent hover:text-white"
+                className="tap text-fg-3 underline decoration-line-strong underline-offset-4 transition hover:decoration-accent hover:text-white"
               >
                 Repository
               </a>

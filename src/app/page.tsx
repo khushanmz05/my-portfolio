@@ -75,7 +75,7 @@ export default function Home() {
                     href={social.href}
                     target={social.external ? "_blank" : undefined}
                     rel={social.external ? "noopener noreferrer" : undefined}
-                    className="transition hover:text-white"
+                    className="tap transition hover:text-white"
                   >
                     {social.label}
                   </a>
@@ -83,14 +83,14 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="lg:max-w-[380px] lg:justify-self-end">
-              <div className="relative aspect-[3/4] overflow-hidden rounded-[24px] border border-line bg-surface">
+            <div className="w-full max-w-sm lg:max-w-[380px] lg:justify-self-end">
+              <div className="relative aspect-[4/5] max-h-[420px] overflow-hidden lg:aspect-[3/4] lg:max-h-none rounded-[24px] border border-line bg-surface">
                 <Image
                   src="/Image.jpeg"
                   alt="Khushan Kanakrai"
                   fill
                   priority
-                  sizes="(min-width: 1024px) 440px, 100vw"
+                  sizes="(min-width: 1024px) 380px, (min-width: 640px) 384px, 100vw"
                   className="object-cover"
                 />
               </div>
@@ -134,7 +134,7 @@ export default function Home() {
 
             <Link
               href="/projects"
-              className="text-sm font-medium text-accent-text transition hover:text-white"
+              className="tap text-sm font-medium text-accent-text transition hover:text-white"
             >
               All projects
             </Link>

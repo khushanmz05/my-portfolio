@@ -13,7 +13,7 @@ export default function NotFound() {
         </p>
         <Link
           href="/projects"
-          className="mt-8 inline-flex text-sm font-medium text-accent-text transition hover:text-white"
+          className="tap mt-8 inline-flex text-sm font-medium text-accent-text transition hover:text-white"
         >
           See all projects
         </Link>

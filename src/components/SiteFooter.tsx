@@ -30,7 +30,7 @@ export default function SiteFooter() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-fg-2 transition hover:text-accent-text"
+                className="tap text-fg-2 transition hover:text-accent-text"
               >
                 {link.label}
               </a>
@@ -39,7 +39,7 @@ export default function SiteFooter() {
                 key={link.label}
                 href={link.href}
                 download={link.download || undefined}
-                className="text-fg-2 transition hover:text-accent-text"
+                className="tap text-fg-2 transition hover:text-accent-text"
               >
                 {link.label}
               </a>
@@ -50,7 +50,7 @@ export default function SiteFooter() {
 
       <div className="mt-10 flex flex-col gap-2 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
         <p>© {new Date().getFullYear()} {site.name}</p>
-        <Link href="/" className="transition hover:text-accent-text">
+        <Link href="/" className="tap transition hover:text-accent-text">
           Khushan Kanakrai, Software Engineering
         </Link>
       </div>

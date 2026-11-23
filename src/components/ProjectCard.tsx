@@ -13,7 +13,7 @@ function ProjectLinks({ project }: { project: Project }) {
       {project.caseStudy && (
         <Link
           href={project.caseStudy}
-          className="font-medium text-accent-text transition hover:text-white"
+          className="tap font-medium text-accent-text transition hover:text-white"
         >
           Read case study
         </Link>
@@ -24,7 +24,7 @@ function ProjectLinks({ project }: { project: Project }) {
           href={project.live}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-medium text-fg-2 transition hover:text-white"
+          className="tap font-medium text-fg-2 transition hover:text-white"
         >
           Live site
         </a>
@@ -35,7 +35,7 @@ function ProjectLinks({ project }: { project: Project }) {
           href={project.repo}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-fg-3 transition hover:text-white"
+          className="tap text-fg-3 transition hover:text-white"
         >
           Repository
         </a>

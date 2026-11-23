@@ -27,8 +27,27 @@
     "Segoe UI", sans-serif;
 }
 
+/* 44px tap target for inline text links without changing the line rhythm */
+@utility tap {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  margin-block: -0.75rem;
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+p,
+li {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
 }
 
 body {

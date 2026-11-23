@@ -126,7 +126,7 @@ export default function About() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="underline decoration-line-strong underline-offset-4 transition hover:text-white hover:decoration-accent"
+                    className="tap underline decoration-line-strong underline-offset-4 transition hover:text-white hover:decoration-accent"
                   >
                     {social.label}
                   </a>
@@ -134,7 +134,7 @@ export default function About() {
               <a
                 href={site.cvPath}
                 download
-                className="underline decoration-line-strong underline-offset-4 transition hover:text-white hover:decoration-accent"
+                className="tap underline decoration-line-strong underline-offset-4 transition hover:text-white hover:decoration-accent"
               >
                 CV
               </a>

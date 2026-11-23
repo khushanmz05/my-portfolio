@@ -51,7 +51,7 @@ export default function ProjectsExplorer() {
                 setFilter(category);
                 setShowAll(false);
               }}
-              className={`rounded-full border px-4 py-2 text-sm font-medium transition ${
+              className={`min-h-11 rounded-full border px-4 py-2 text-sm font-medium transition ${
                 active
                   ? "border-accent-strong bg-accent-strong text-white"
                   : "border-line bg-surface text-fg-3 hover:border-accent/40 hover:text-white"
@@ -157,7 +157,7 @@ export default function ProjectsExplorer() {
             <button
               type="button"
               onClick={() => setFilter("All")}
-              className="text-sm font-medium text-accent-text transition hover:text-white"
+              className="tap text-sm font-medium text-accent-text transition hover:text-white"
             >
               Clear filter
             </button>

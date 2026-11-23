@@ -21,16 +21,16 @@ export default function PageBackground() {
 
       {/* Technical grid */}
       <div
-        className="absolute inset-0 opacity-[0.035]"
+        className="absolute inset-0 opacity-[0.025]"
         style={{
           backgroundImage: `
             linear-gradient(rgba(169,156,255,0.22) 1px, transparent 1px),
             linear-gradient(90deg, rgba(169,156,255,0.22) 1px, transparent 1px)
           `,
           backgroundSize: "48px 48px",
-          maskImage: "linear-gradient(to bottom, black 0%, transparent 78%)",
+          maskImage: "linear-gradient(to bottom, black 0%, transparent 55%)",
           WebkitMaskImage:
-            "linear-gradient(to bottom, black 0%, transparent 78%)",
+            "linear-gradient(to bottom, black 0%, transparent 55%)",
         }}
       />
 

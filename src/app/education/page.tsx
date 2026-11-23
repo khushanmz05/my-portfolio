@@ -85,7 +85,7 @@ export default function Education() {
                           href={item.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="transition hover:text-accent-text"
+                          className="tap transition hover:text-accent-text"
                         >
                           {item.school}
                         </a>
@@ -100,7 +100,7 @@ export default function Education() {
                     {item.degree}
                   </p>
 
-                  <p className="text-sm leading-6 text-fg-3 md:text-base">
+                  <p className="max-w-[56ch] text-sm leading-6 text-fg-3 md:text-base">
                     {item.description}
                   </p>
                 </div>

@@ -30,7 +30,7 @@ export default function CaseStudyLayout({
         <article className="relative">
           <Link
             href="/projects"
-            className="inline-flex items-center text-sm font-medium text-fg-3 transition hover:text-accent-text"
+            className="tap inline-flex items-center text-sm font-medium text-fg-3 transition hover:text-accent-text"
           >
             Back to projects
           </Link>
@@ -95,7 +95,7 @@ export default function CaseStudyLayout({
               className={
                 project.image
                   ? "relative aspect-[16/9] overflow-hidden rounded-[14px] bg-inset"
-                  : "relative h-[340px] overflow-hidden rounded-[14px] bg-inset sm:h-[380px]"
+                  : "relative h-[280px] overflow-hidden rounded-[14px] bg-inset sm:h-[340px]"
               }
             >
               {project.image ? (
@@ -108,7 +108,9 @@ export default function CaseStudyLayout({
                   className="h-full w-full object-cover"
                 />
               ) : (
-                <ProjectCover kind={project.cover} title={project.title} />
+                <div className="mx-auto h-full max-w-xl">
+                  <ProjectCover kind={project.cover} title={project.title} />
+                </div>
               )}
             </div>
           </section>
